@@ -2,33 +2,29 @@ var Metalsmith  = require('metalsmith');
 var markdown    = require('metalsmith-markdown');
 var layouts     = require('metalsmith-layouts');
 var permalinks  = require('metalsmith-permalinks');
-var watch       = require('metalsmith-watch');
-var cssPacker   = require('metalsmith-css-packer');
+var Runner      = require('metalsmith-start').Runner;
 
-Metalsmith(__dirname)
-  .metadata({
+var metalsmith = Metalsmith(__dirname);
+  metalsmith.metadata({
     title: "A Stray Capacitance",
     description: "A blog about what I do.",
     generator: "Metalsmith",
-    url: "http://localhost:8080/"
+    url: "http://localhost:8080/",
+    bannerUrl: "https://dummyimage.com/600x400/000/fff"
   })
   .source('./src')
   .destination('./build')
-  .clean(false)
+  .clean(true)
   .use(markdown())
   .use(permalinks())
-  .use(cssPacker())
   .use(layouts({
     engine: 'handlebars'
-  })).use(
-    watch({
-      paths: {
-        "${source}/**/*":true,
-        "layouts/**/*": "**/*.md",
-      },
-      livereload: true,
-    })
-  )
-  .build(function(err, files) {
-    if (err) { throw err; }
-  });
+  }));
+
+console.log(metalsmith)
+
+if (module.parent) {
+  module.exports = metalsmith
+} else {
+  metalsmith.build(function (err) { if (err) throw err })
+}

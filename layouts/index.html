@@ -4,17 +4,15 @@
   <meta charset="UTF-8" />
   <title>{{ title }}</title>
   <meta name="description" content="{{ description }}">
-  <link href="/style.css" rel="stylesheet">
-  <link href="/reset.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+  <link href="/css/reset.css" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <p>
-      <a href="/">Home</a>
-    </p>
-  </header>
-  <h1>{{ title }}</h1>
-  <p>{{ description }}</p>
+  <div class="banner" >
+    <h1>{{ title }}</h1>
+    <p>{{ description }}</p>
+  </div>
+
 
   {{{ contents }}}
 
