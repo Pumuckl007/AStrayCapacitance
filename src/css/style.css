@@ -74,3 +74,17 @@ p {
   align-self: center;
   font-family: 'Open Sans', sans-serif;
 }
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row nowrap;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.header a{
+  text-decoration: none;
+  color: white;
+  background-color: black;
+}
