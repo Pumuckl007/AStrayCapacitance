@@ -1,6 +1,76 @@
 .banner {
   width: 100%;
-  height: 10em;
+  height: 20em;
+  background-color: black;
+  display:flex;
+  justify-content: center;
+  flex-flow: column wrap;
+}
+
+.banner h1, .banner p {
+  align-self: center;
+  color: white;
+  margin-bottom: 0.5em;
+}
+
+.banner h1{
+  font-size: 4em;
+}
+
+p {
+  color: black;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.previewContainer {
+  display:flex;
+  flex-flow:column wrap;
+  width:100%;
+  justify-content: center;
+}
+
+.preview {
+  width:100%;
+  display:flex;
+  max-height: 30em;
+  flex-flow: row wrap;
+  margin-top: 2em;
+  justify-content: space-around;
+}
+
+.preview-img {
+  height: 18em;
+  width: 100%;
+  max-width:30em;
+  background-size: cover;
+  background-position: center center;
+  margin-left: 0.1em;
+}
+
+.preview-text {
+  display:flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  min-width: 15em;
+  width: 40%;
+}
+
+.preview-text a{
+  text-decoration: none;
+}
+
+.preview-title {
+  font-size: 2em;
+  color: #303030;
+  text-decoration: none;
+  margin-bottom: 0.7em;
+  margin-top: 0.3em;
+  align-self: center;
   text-align: center;
-  background-color: red;
+}
+
+.preview-discription {
+  color: #303030;
+  align-self: center;
+  font-family: 'Open Sans', sans-serif;
 }
