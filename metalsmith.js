@@ -3,6 +3,11 @@ var markdown         = require('metalsmith-markdown');
 var layouts          = require('metalsmith-layouts');
 var permalinks       = require('metalsmith-permalinks');
 var Runner           = require('metalsmith-start').Runner;
+var collections      = require('metalsmith-collections');
+var pagination       = require('metalsmith-pagination');
+var dateFormatter    = require('metalsmith-date-formatter');
+
+process.env.TZ = 'Pacific';
 
 var previews = [
   {title : "A",
@@ -27,14 +32,26 @@ var metalsmith = Metalsmith(__dirname);
   .source('./src')
   .destination('./build')
   .clean(true)
+  .use(collections({
+    posts: {
+        pattern: 'blogs/*.md'
+    }
+  }))
+  .use(pagination({
+    'collections.posts': {
+      perPage: 10,
+      layout: 'blog.html',
+      first: 'blog/index.html',
+      path: 'blog/page/:num/index.html'
+    }
+  }))
   .use(markdown())
   .use(permalinks())
+  .use(dateFormatter())
   .use(layouts({
     engine: 'handlebars',
     partials: 'src/partials/'
   }));
-
-console.log(metalsmith)
 
 if (module.parent) {
   module.exports = metalsmith
