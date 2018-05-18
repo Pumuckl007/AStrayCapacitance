@@ -2,7 +2,7 @@
 layout: post.html
 publishDate: 2018-05-17
 title: The A post
-description: The first blog post that does not exist.
+description: The first blog post that does not exist. It covers only the bare minimum of material.
 author: Max Apodaca
 ---
 

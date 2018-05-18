@@ -4,9 +4,12 @@
   <div class="blog-previews">
     {{#each pagination.files }}
       <div class="blog-preview">
-        <h1 class="blog-preview-title"> {{ title }}</h1>
+        <div>
+          <a href="/{{path}}/"><h1 class="blog-preview-title"> {{ title }}</h1>
+          </a>
+        </div>
         <div class="blog-preview-text"> {{ description }} </div>
-        <div class="blog-byline"> {{author}} - {{ publishDate}}
+        <div class="blog-byline"> {{author}} - {{ publishDate}}</div>
       </div>
     {{/each}}
   </div>
