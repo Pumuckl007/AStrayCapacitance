@@ -22,10 +22,10 @@ var previews = [
 
 var metalsmith = Metalsmith(__dirname);
   metalsmith.metadata({
-    title: "A Stray Capacitance",
+    blogTitle: "A Stray Capacitance",
     description: "A blog about what I do.",
     generator: "Metalsmith",
-    url: "http://localhost:8080/",
+    url: "http://localhost:3000/",
     bannerUrl: "https://dummyimage.com/600x400/000/fff",
     previews: previews
   })
@@ -39,7 +39,7 @@ var metalsmith = Metalsmith(__dirname);
   }))
   .use(pagination({
     'collections.posts': {
-      perPage: 10,
+      perPage: 1,
       layout: 'blog.html',
       first: 'blog/index.html',
       path: 'blog/page/:num/index.html'
