@@ -24,10 +24,11 @@ var metalsmith = Metalsmith(__dirname);
   metalsmith.metadata({
     blogTitle: "A Stray Capacitance",
     description: "A blog about what I do.",
-    generator: "Metalsmith",
     url: "http://localhost:3000/",
     bannerUrl: "https://dummyimage.com/600x400/000/fff",
-    previews: previews
+    previews: previews,
+    author: "Maximilian Apodaca",
+    github: "https://github.com/Pumuckl007/"
   })
   .source('./src')
   .destination('./build')
