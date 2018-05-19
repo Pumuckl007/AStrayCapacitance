@@ -11,6 +11,7 @@
   align-self: center;
   color: white;
   margin-bottom: 0.5em;
+  text-align: center;
 }
 
 .banner h1{
@@ -235,4 +236,14 @@ a:after {
 
 a:hover:after {
   width: 100%;
+}
+
+@media only screen and (max-width: 500px) {
+    body {
+        font-size: 0.85em;
+    }
+
+    .preview-img {
+      margin-left: 0;
+    }
 }
