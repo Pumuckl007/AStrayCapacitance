@@ -14,20 +14,28 @@
     {{/each}}
   </div>
   <div class="navbar">
-    {{#if pagination.next}}
-    <div class="navForward"> NEXT!!!!</div>
+    {{#if pagination.previous}}
+    <div class="navBack">
+      <a href="/{{pagination.previous.path}}/">Back</a>
+    </div>
     {{else}}
     <div class="navEmpty"></div>
     {{/if}}
     <div class="pageMarkers">
       {{#each pagination.pages}}
+        {{#each this.pagination.getPages}}
+          <div>{{@key}}</div>
+          <br>
+        {{/each}}
         <div class="pageMarker">
           <a href="/{{path}}/">{{pagination.num}}</a>
         </div>
       {{/each}}
     </div>
-    {{#if pagination.previous}}
-    <div class="navBack"> BACK!!!!</div>
+    {{#if pagination.next}}
+    <div class="navForward">
+      <a href="/{{pagination.next.path}}/">Next</a>
+    </div>
     {{else}}
     <div class="navEmpty"></div>
     {{/if}}

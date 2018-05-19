@@ -11,11 +11,11 @@ process.env.TZ = 'Pacific';
 
 var previews = [
   {title : "A",
-  link: "/posts/a/",
+  link: "/blog/a/",
   discription: "This is the A project, it has a lot of good ideas in it.",
   imgUrl: "https://dummyimage.com/600x400/000/fff"},
   {title : "C",
-  link: "/posts/a/",
+  link: "/blog/a/",
   discription: "This is the A project, it has a lot of good ideas in it.",
   imgUrl: "https://dummyimage.com/600x400/000/fff"}
 ]
@@ -39,7 +39,7 @@ var metalsmith = Metalsmith(__dirname);
   }))
   .use(pagination({
     'collections.posts': {
-      perPage: 1,
+      perPage: 10,
       layout: 'blog.html',
       first: 'blog/index.html',
       path: 'blog/page/:num/index.html'
