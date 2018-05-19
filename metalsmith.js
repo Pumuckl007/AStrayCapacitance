@@ -10,10 +10,10 @@ var dateFormatter    = require('metalsmith-date-formatter');
 process.env.TZ = 'Pacific';
 
 var previews = [
-  {title : "A",
-  link: "/blog/a/",
-  discription: "This is the A project, it has a lot of good ideas in it.",
-  imgUrl: "https://dummyimage.com/600x400/000/fff"},
+  {title : "8-Bit Computer Simulator",
+  link: "/blog/8-Bit-Simulator/",
+  discription: "A simulator for an extended version of Ben Eater's 8-bit computer.",
+  imgUrl: "/images/8bitsimulator.png"},
   {title : "C",
   link: "/blog/a/",
   discription: "This is the A project, it has a lot of good ideas in it.",
@@ -25,7 +25,7 @@ var metalsmith = Metalsmith(__dirname);
     blogTitle: "A Stray Capacitance",
     description: "A blog about what I do.",
     url: "http://localhost:3000/",
-    bannerUrl: "https://dummyimage.com/600x400/000/fff",
+    bannerUrl: "/images/cover.jpg",
     previews: previews,
     author: "Maximilian Apodaca",
     github: "https://github.com/Pumuckl007/"
