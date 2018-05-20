@@ -1,11 +1,15 @@
-var Metalsmith       = require('metalsmith');
-var markdown         = require('metalsmith-markdown');
-var layouts          = require('metalsmith-layouts');
-var permalinks       = require('metalsmith-permalinks');
-var Runner           = require('metalsmith-start').Runner;
-var collections      = require('metalsmith-collections');
-var pagination       = require('metalsmith-pagination');
-var dateFormatter    = require('metalsmith-date-formatter');
+var Metalsmith             = require('metalsmith');
+var markdown               = require('metalsmith-markdown');
+var layouts                = require('metalsmith-layouts');
+var permalinks             = require('metalsmith-permalinks');
+var Runner                 = require('metalsmith-start').Runner;
+var collections            = require('metalsmith-collections');
+var pagination             = require('metalsmith-pagination');
+var dateFormatter          = require('metalsmith-date-formatter');
+var domTransform           = require('metalsmith-dom-transform');
+var codeHighlightTransform = require('metalsmith-code-highlight/transform');
+var assemblyHighlight      = require('./assembly-highlight.js');
+var highlight              = require('highlight.js');
 
 process.env.TZ = 'Pacific';
 
@@ -14,11 +18,13 @@ var previews = [
   link: "/blogs/8-Bit-Simulator/",
   discription: "A simulator for an extended version of Ben Eater's 8-bit computer.",
   imgUrl: "/images/8bitsimulator.png"},
-  {title : "C",
-  link: "/blogs/a/",
-  discription: "This is the A project, it has a lot of good ideas in it.",
+  {title : "Cart Transmission",
+  link: "/blogs/Cart-Transmission/",
+  discription: "A 3D printed transmission for a cart.",
   imgUrl: "https://dummyimage.com/600x400/000/fff"}
 ]
+
+var codeHighlight = codeHighlightTransform({languages: [assemblyHighlight]});
 
 var metalsmith = Metalsmith(__dirname);
   metalsmith.metadata({
@@ -52,7 +58,13 @@ var metalsmith = Metalsmith(__dirname);
   .use(layouts({
     engine: 'handlebars',
     partials: 'src/partials/'
+  })).use(domTransform({
+  transforms: [
+    codeHighlight
+  ]
   }));
+
+highlight.registerLanguage("assembly", assemblyHighlight);
 
 if (module.parent) {
   module.exports = metalsmith
