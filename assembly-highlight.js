@@ -7,7 +7,6 @@ LICENSE found here: https://github.com/isagalaev/highlight.js/blob/master/LICENS
 */
 
 var asm = function(hljs) {
-  console.log("here");
     //local labels: %?[FB]?[AT]?\d{1,2}\w+
   return {
     case_insensitive: true,
@@ -43,25 +42,13 @@ var asm = function(hljs) {
       {
         className: 'keyword',
         begin: '\\b('+     //mnemonics
-            'adc|'+
-            '(qd?|sh?|u[qh]?)?add(8|16)?|usada?8|(q|sh?|u[qh]?)?(as|sa)x|'+
-            'and|adrl?|sbc|rs[bc]|asr|b[lx]?|blx|bxj|cbn?z|tb[bh]|bic|'+
-            'bfc|bfi|[su]bfx|bkpt|cdp2?|clz|clrex|cmp|cmn|cpsi[ed]|cps|'+
-            'setend|dbg|dmb|dsb|eor|isb|it[te]{0,3}|lsl|lsr|ror|rrx|'+
-            'ldm(([id][ab])|f[ds])?|ldr((s|ex)?[bhd])?|movt?|mvn|mra|mar|'+
-            'mul|[us]mull|smul[bwt][bt]|smu[as]d|smmul|smmla|'+
-            'mla|umlaal|smlal?([wbt][bt]|d)|mls|smlsl?[ds]|smc|svc|sev|'+
-            'mia([bt]{2}|ph)?|mrr?c2?|mcrr2?|mrs|msr|orr|orn|pkh(tb|bt)|rbit|'+
-            'rev(16|sh)?|sel|[su]sat(16)?|nop|pop|push|rfe([id][ab])?|'+
-            'stm([id][ab])?|str(ex)?[bhd]?|(qd?)?sub|(sh?|q|u[qh]?)?sub(8|16)|'+
-            '[su]xt(a?h|a?b(16)?)|srs([id][ab])?|swpb?|swi|smi|tst|teq|'+
-            'wfe|wfi|yield'+
+            'nop|lda|add|sub|sta|ldi|jmp|jez|jgz|out|hlt'+
         ')'+
         '(eq|ne|cs|cc|mi|pl|vs|vc|hi|ls|ge|lt|gt|le|al|hs|lo)?'+ //condition codes
         '[sptrx]?' ,                                             //legal postfixes
         end: '\\s'
       },
-      hljs.COMMENT('[;@]', '$', {relevance: 0}),
+      hljs.COMMENT('[;*]', '$', {relevance: 0}),
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.QUOTE_STRING_MODE,
       {
@@ -89,9 +76,7 @@ var asm = function(hljs) {
       {
         className: 'symbol',
         variants: [
-            {begin: '^[a-z_\\.\\$][a-z0-9_\\.\\$]+'}, //ARM syntax
-            {begin: '^\\s*[a-z_\\.\\$][a-z0-9_\\.\\$]+:'}, //GNU ARM syntax
-            {begin: '[=#]\\w+' }  //label reference
+            {begin: '\w+:/g' }  //label reference
         ],
         relevance: 0
       }
