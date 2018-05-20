@@ -11,11 +11,11 @@ process.env.TZ = 'Pacific';
 
 var previews = [
   {title : "8-Bit Computer Simulator",
-  link: "/blog/8-Bit-Simulator/",
+  link: "/blogs/8-Bit-Simulator/",
   discription: "A simulator for an extended version of Ben Eater's 8-bit computer.",
   imgUrl: "/images/8bitsimulator.png"},
   {title : "C",
-  link: "/blog/a/",
+  link: "/blogs/a/",
   discription: "This is the A project, it has a lot of good ideas in it.",
   imgUrl: "https://dummyimage.com/600x400/000/fff"}
 ]
