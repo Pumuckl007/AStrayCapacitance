@@ -36,4 +36,14 @@ HLT
 </div>
 <span></span>
 
+The compiler works by first going through and finding any labels. These are stored with their name and the line to which they correspond. After that each instruction gets translated into the corresponding machine code and the data is set. In addition, any references to labels are set to the corresponding line number. This yields the machine code that can be run on the computer.
+
+
+With this data the computer can now be programmed, which you
+ could do by hand or by uploading it with a programmer. This programmer is illustrated in the video below. However the code can also be run on a simulator.
+
+Simulator
+---
+
+The simulator is set up to mimic the computer as closely as possible. As a result each component of the computer is mimicked in code and they are connected together by a control word and bus as they are in the computer. As a result the simulator is functionally identical to the computer.
 <iframe style="height: 40em;" src="https://pumuckl007.github.io/8BitCompiler/"></iframe>
