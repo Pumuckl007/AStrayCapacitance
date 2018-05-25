@@ -2,7 +2,7 @@ code {
   font-family: monospace;
 }
 
-.hljs-comment, .hljs-symbol, .hljs-number, .hljs-keyword{
+.hljs-comment, .hljs-symbol, .hljs-number, .hljs-keyword, .hljs-built_in, .hljs-literal{
   font-family: monospace;
 }
 
@@ -15,5 +15,13 @@ code {
 }
 
 .hljs-number {
+  color: #a22f1f;
+}
+
+.hljs-built_in {
+  color: #0694a7;
+}
+
+.hljs-literal{
   color: #a22f1f;
 }
