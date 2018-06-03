@@ -21,7 +21,7 @@ var previews = [
   {title : "Cart Transmission",
   link: "/blogs/Cart-Transmission/",
   discription: "A 3D printed transmission for a cart.",
-  imgUrl: "https://dummyimage.com/600x400/000/fff"}
+  imgUrl: "/images/Cart-Transmission/TransmissionOnshape.jpg"}
 ]
 
 var codeHighlight = codeHighlightTransform({languages: [assemblyHighlight]});
