@@ -35,6 +35,28 @@ However, in addition to the worm wheel there is the worm itself. This is defined
 
 ![Worm Diagram](/images/Cart-Transmission/WormDiagram.svg)
 
-After determining these perameters I created a modle of each of the gears in addition to adding in the blackplate, additional supports, and spacers.
+After determining these parameters I created a model of each of the gears in addition to adding in the back plate, additional supports, and spacers.
 
 ![Transmission OnShape](/images/Cart-Transmission/TransmissionOnshape.png)
+
+## Simulating the Transmission
+
+After completing the transmission I had no idea how strong the structure would be. As a result I turned to a SimScale, a finite element analysis program, to determine if the transmission was strong enough. I went through using the defaults for most settings while specifying PLA as material I would print the transmission out of and where the transmission would bear weight.
+
+![Transmission Loads](/images/Cart-Transmission/TransmissionLoads.png)
+
+In the picture above the transmission supports the weight of the platform above and the weight of the motor while resting on the axle. These weight exerting areas are highlighted. After setting up the simulation I let it run which yielded that the maximum deformation would be <DEFORMATION>.
+
+![Transmission Deformation](/images/Cart-Transmission/TransmissionDeformation.png)
+
+## Printing and Assembling
+
+After completing the simulated tests I went ahead and printed the transmission components and assembled them. The final result works as expected except that the friction between the 3D printed wheel and the ground was too little. To fix this I added a rubber bracelet as a tire which worked to improve the friction.
+
+![Transmission Assembled](/images/Cart-Transmission/TransmissionDone.png)
+
+## Model
+
+The model is available on [Onshape](https://cad.onshape.com/documents/86fffa5e35544131f79278c4/w/783ba8745fe2f745e99e30d7/e/ca928e950240a706516087b2).
+
+The simulations are available on [SimScale](https://www.simscale.com/projects/pumuckl007/supportwall/) in addition to an [article featuring the project](https://www.simscale.com/forum/t/3d-printed-transmission-support/82416)
