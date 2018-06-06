@@ -6,37 +6,39 @@ description: Creating a simulator for Ben Eater's Computer.
 publishDate: 2018-05-25
 ---
 
-Soon after working with [Ben Eater's 8-Bit Computer](https://eater.net) I ran into a limitation of writing the code on paper and then inputting it to the Computer. Coming from programming in Java and JavaScript I am accustomed to using a debugger and wanted that feature on the eater computer. As a result I decided to write a [simulator for the computer](https://pumuckl007.github.io/8BitCompiler/).
+I recently built a [Ben Eater 8-Bit Computer](https://eater.net) and it is a whole lot of fun to program, I extended the ram which added more functionality but made it teadious to program up to 50 bytes by hand for each program. In addition, I wanted a debugger for the computer. So I set forth to write a [simulator for the computer](https://pumuckl007.github.io/8BitCompiler/).
 
 Compiler
 ---
-The simulator consists of two parts, a compiler and a virtual computer. The compiler is responsible from taking a rudimentary form of assembly and turning it into machine code which the computer can execute. Below is an example of assembly and compiled machine code.
+The simulator consists of two parts, a compiler and a virtual computer. The compiler is responsible for taking a rudimentary form of assembly and turning it into machine code. The virtual computer can then execute the machine code which is the same for the physical and virtual computers. Below is an example of assembly and compiled machine code.
 
 <div class="two-column">
 <div class="column">
 ```assembly
+a:
 LDI 12
 STA 200
 LDI 8
 ADD 200
 OUT
-HLT
+JMP a
 ```
 </div>
 <div class="column">
 ```machine
+
 05 0C
 04 C8
 05 08
 02 C8
 0E 00
-0F 00
+07 00
 ```
 </div>
 </div>
 <span></span>
 
-The compiler works by first going through and finding any labels. These are stored with their name and the line to which they correspond. After that each instruction gets translated into the corresponding machine code and the data is set. In addition, any references to labels are set to the corresponding line number. This yields the machine code that can be run on the computer.
+The compiler works by first going through and finding any labels. These are stored with their name and the line to which they correspond. After that each instruction gets translated into the corresponding machine code and the data is copied from the source. In addition, any references to labels are set to their corresponding line number. This yields the machine code that can be run on the computer.
 
 
 With this data the computer can now be programmed, which you
@@ -67,7 +69,7 @@ step(microInstruction, computer){
 }
 ```
 
-Each individual register stores a value which can be access or modified with a get or set value. Making connections between registers is as easy as passing them into the arguments as seen with the sum register.
+Each individual register stores a value which can be access or modified with a geter seter. Making connections between registers is as easy as passing them into the constructor of another register.
 
 ```JavaScript
 constructor(width, aRegister, bRegister){
@@ -88,10 +90,12 @@ getValue(subtraction){
 }
 ```
 
+The mask is used to keep the value the register returns within the width which is 8 in this case.
+
 Programming the Simulator
 ---
 
-The simulator can be programmed in assembly for which the instructions are listed below. In addition to writing code you can write comments prefaced with ```*``` as well as create labels with the ```name:``` syntax. Labels can be used in place of any immediate and refer to the next instruction.
+The simulator can be programmed in assembly for which the instructions are listed below. In addition to writing code you can write comments prefaced with ```*``` as well as create labels with the ```name:``` syntax. Labels can be used in place of any immediate and refer to the following instruction.
 
 After you have written code hit the Build "🔨" button to compile and upload it to the simulator or the Debug "🐞" button to run it in debugger mode. The debugger will stop when the labeled instructions are executed. You can set the clock rate, keep in mind that it takes six clock pulses to execute an instruction.
 
