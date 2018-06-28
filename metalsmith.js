@@ -41,7 +41,8 @@ var metalsmith = Metalsmith(__dirname);
   .clean(true)
   .use(collections({
     posts: {
-        pattern: 'blogs/*.md'
+        pattern: 'blogs/*.md',
+        sortBy: 'date'
     }
   }))
   .use(pagination({
