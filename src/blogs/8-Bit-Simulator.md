@@ -95,7 +95,11 @@ The mask is used to keep the value the register returns within the width which i
 Programming the Simulator
 ---
 
+<<<<<<< HEAD
 The simulator can be programmed in assembly for which the instructions are listed below. In addition to writing code you can write comments prefaced with ```*``` as well as create labels with the ```name:``` syntax. Labels can be used in place of any immediate and refer to the following instruction.
+=======
+The simulator can be programmed in assembly for which the instructions are listed below. In addition to writing code you can write comments prefaced with <code class="no-highlight">\*</code> as well as create labels with the ```name:``` syntax. Labels can be used in place of any immediate and refer to the next instruction.
+>>>>>>> ee9cf019dfad39777a3119926041a22b27699bf0
 
 After you have written code hit the Build "🔨" button to compile and upload it to the simulator or the Debug "🐞" button to run it in debugger mode. The debugger will stop when the labeled instructions are executed. You can set the clock rate, keep in mind that it takes six clock pulses to execute an instruction.
 
